@@ -176,10 +176,10 @@ const CaseStudy = () => (
           meta: [['MÅL', 'FMCG-aktivering'], ['PERIODE', '2024'], ['MEDIE', 'Emballage + Web']] },
         { head: 'Ekstraordinær kundeoplevelse',
           body: 'Ved at scanne Remix-chipsposerne åbner forbrugerne en interaktiv AR-oplevelse direkte på mobilen, uden at hente en app. Her dykker de ned i en virtuel Remix-verden og bliver en del af festen.',
-          meta: [['FRIKTION', '0 downloads'], ['OPSTART', '< 3 sek.'], ['PLATFORM', '8th Wall WebAR']] },
+          meta: [['OPSTART', '< 30 SEK.'], ['ADGANG', 'DIREKTE'], ['PLATFORM', 'WebAR']] },
         { head: 'Kampagnen der fastholdt',
           body: 'Vores interaktive AR-kampagne skabte stærk brugerinteraktion på tværs af landet. 38.000 scanninger, 1,2 minutters gennemsnitlig engagementtid. Forbrugerne udforskede aktivt og festede med til hits.',
-          meta: [['SCANNINGER', '38.000'], ['SNITTID', '1,2 MIN'], ['RÆKKEVIDDE', 'Landsdækkende']] },
+          meta: [['SCANNINGER', '38.000'], ['GNS. VISNINGSTID', '1,2 MIN'], ['RÆKKEVIDDE', 'Landsdækkende']] },
       ]}
       scenes={[
         { kind: 'image', src: 'assets/KiMs_Remix_tlf_1.png', alt: 'KiMs Remix AR-kampagne — oplevelsen på mobil i browseren' },
@@ -194,13 +194,13 @@ const CaseStudy = () => (
       content={[
         { head: 'Folkets sodavand og sømænds',
           body: 'Harboe søsætter nyt reklameunivers, i bogstavelig forstand. Med et konkret mål: Få så mange som muligt til at se og huske filmen. Derfor blev reklamen integreret direkte på flasken gennem en AR-kampagne, præcis dér, hvor forbrugeren allerede har produktet i hånden.',
-          meta: [['MÅL', 'FMCG-aktivering'], ['PERIODE', '2025'], ['MEDIE', 'Emballage + Web']] },
+          meta: [['MÅL', 'FMCG-aktivering'], ['PERIODE', '2026'], ['MEDIE', 'Emballage + Web']] },
         { head: 'Reklamen lever i flasken',
           body: 'Oplevelsen trækker forbrugeren direkte ind i kampagnens univers. Når flasken scannes, åbner den sig, og elementer fra 1800-tallets søfart vælter ud. Midt i det hele træder en gylden ramme frem, hvor filmen begynder at afspille.',
-          meta: [['FRIKTION', '0 downloads'], ['OPSTART', '< 3 sek.'], ['PLATFORM', '8th Wall WebAR']] },
+          meta: [['OPSTART', '< 30 SEK.'], ['ADGANG', 'DIREKTE'], ['PLATFORM', 'WebAR']] },
         { head: 'Resultatet',
           body: 'Kampagnen er friskt søsat, vi opdaterer tallene, så snart de første scanninger ruller ind.',
-          meta: [['SCANNINGER', '—'], ['SNITTID', '—'], ['RÆKKEVIDDE', '—']] },
+          meta: [['SCANNINGER', '—'], ['GNS. VISNINGSTID', '—'], ['RÆKKEVIDDE', '—']] },
       ]}
       scenes={[
         { kind: 'image', src: 'assets/Harboe_tlf_1.png', alt: 'Harboe Bryggeri WebAR — flasken scanner direkte i browseren' },

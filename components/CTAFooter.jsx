@@ -126,7 +126,7 @@ const CTAFooter = () => {
         fontFamily: 'Space Mono, monospace', fontSize: 10,
         color: 'rgba(255,255,255,0.45)', letterSpacing: '0.1em', textTransform: 'uppercase',
       }}>
-        <span>©2025 LOUD COLORS APS · CVR 45 54 12 74</span>
+        <span>©2026 LOUD COLORS APS · CVR 45 54 12 74</span>
         <span>FREJASVEJ 23 · 8230 AARHUS · DK</span>
         <span>MADE IN DENMARK</span>
       </div>

@@ -113,7 +113,7 @@ const Hero = () => {
             fontFamily: 'Inter, sans-serif', fontSize: 15, lineHeight: 1.85,
             color: 'rgba(255,255,255,0.68)', margin: 0,
           }}>
-            Vi bygger interaktive brandoplevelser, der sletter grænsen mellem det fysiske og det digitale - direkte i browseren, uden app.
+            Vi bygger interaktive brandoplevelser, der fjerner grænsen mellem det fysiske og det digitale - direkte i browseren, uden app.
           </p>
         </div>
       </div>

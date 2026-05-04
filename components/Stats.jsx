@@ -40,8 +40,8 @@ const Stats = () => {
           border: '1px solid rgba(255,255,255,0.12)',
         }}>
           <BigStat refEl={tRef} value={fmt(total)} label="Scanninger totalt" sub="ACROSS · DK"/>
-          <BigStat refEl={eRef} value={engagement + 's'} label="Gns. engagementtid" sub="72 SEK · SESSION" big={false} numeric={`1,2 MIN`}/>
-          <BigStat value="0" label="App-downloads" sub="BROWSER ONLY"/>
+          <BigStat refEl={eRef} value={engagement + 's'} label="Gns. visningstid" sub="GNS. · SESSION" big={false} numeric={`1,2 MIN`}/>
+          <BigStat value="100%" label="Browser-native" sub="INGEN · APP"/>
         </div>
 
         {/* Map + regions */}

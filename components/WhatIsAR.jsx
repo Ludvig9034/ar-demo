@@ -51,7 +51,7 @@ const WhatIsAR = () => {
               ['APP', 'INGEN browser-baseret'],
               ['KOMPATIBILITET', 'iOS · Android'],
               ['OPSTART', '< 3 sek. fra scan til oplevelse'],
-              ['PLATFORM', '8th Wall · WebAR'],
+              ['PLATFORM', 'WebAR'],
             ].map(([k, v]) => (
               <div key={k} style={{
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
@@ -120,18 +120,22 @@ const QRCard = ({ isMobile }) => {
         <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>
           Peg din telefon mod QR-koden, oplevelsen åbner direkte i browseren.
         </div>
-        <button style={{
-          marginTop: 20, width: '100%',
-          background: '#fff', color: '#000', border: 0,
-          padding: '16px 20px', fontFamily: 'Inter, sans-serif', fontSize: 12,
-          letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 600,
-          cursor: 'pointer', transition: 'all 200ms',
-        }}
+        <a
+          href="https://loudcolors.8thwall.app/loud-colors-ar-game/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            marginTop: 20, width: '100%', display: 'block', textAlign: 'center',
+            background: '#fff', color: '#000', textDecoration: 'none', border: 0,
+            padding: '16px 20px', fontFamily: 'Inter, sans-serif', fontSize: 12,
+            letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 600,
+            cursor: 'pointer', transition: 'all 200ms', boxSizing: 'border-box',
+          }}
           onMouseEnter={e => { e.currentTarget.style.background = '#000'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px #fff'; }}
           onMouseLeave={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.color = '#000'; e.currentTarget.style.boxShadow = 'none'; }}
         >
           ÅBN DEMO →
-        </button>
+        </a>
       </div>
       <style>{`
         @keyframes scanline { 0% { top: 0; } 100% { top: 100%; } }
