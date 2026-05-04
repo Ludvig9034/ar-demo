@@ -5,12 +5,10 @@ const CasesStrip = () => {
   const cases = [
     { id: 'kims', client: 'KIMS × MARTIN JENSEN', title: 'Remix Kampagne', tag: 'FMCG · PACKAGING AR',
       vimeoId: '1187351558',
-      grad: 'linear-gradient(135deg, #8a1a1a 0%, #2a0606 60%, #000 100%)',
-      accent: 'radial-gradient(circle at 30% 40%, rgba(255,80,40,0.55), transparent 55%)' },
+      cover: 'assets/KiMs x Martin Jensen_Cover.png' },
     { id: 'harboe', client: 'HARBOES BRYGGERI', title: 'Folkets sodavand', tag: 'FMCG · PACKAGING AR',
       vimeoId: '1180254884',
-      grad: 'linear-gradient(135deg, #0a3a5a 0%, #061a2a 60%, #000 100%)',
-      accent: 'radial-gradient(circle at 70% 50%, rgba(30,160,255,0.5), transparent 55%)' },
+      cover: 'assets/Harboe_Cover.png' },
   ];
   return (
     <section id="cases" style={{ padding: isMobile ? '80px 20px' : '120px 32px', background: '#000', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
@@ -51,7 +49,7 @@ const CasesStrip = () => {
   );
 };
 
-const CaseTile = ({ client, title, tag, grad, accent, vimeoId, index }) => {
+const CaseTile = ({ client, title, tag, cover, vimeoId, index }) => {
   const [hover, setHover] = React.useState(false);
   const [playing, setPlaying] = React.useState(false);
   return (
@@ -71,17 +69,13 @@ const CaseTile = ({ client, title, tag, grad, accent, vimeoId, index }) => {
         />
       ) : (
         <>
-      {/* Poster */}
-      <div style={{
-        position: 'absolute', inset: 0, background: grad,
-        transform: hover ? 'scale(1.04)' : 'scale(1)',
+      {/* Poster — cover image */}
+      <img src={cover} alt="" style={{
+        position: 'absolute', inset: 0, width: '100%', height: '100%',
+        objectFit: 'cover', objectPosition: 'center',
+        transform: hover ? 'scale(1.05)' : 'scale(1)',
         transition: 'transform 900ms cubic-bezier(0.22,1,0.36,1)',
-      }}/>
-      <div style={{
-        position: 'absolute', inset: 0, background: accent,
-        transform: hover ? 'scale(1.1)' : 'scale(1)',
-        opacity: hover ? 1 : 0.7,
-        transition: 'all 900ms cubic-bezier(0.22,1,0.36,1)',
+        display: 'block',
       }}/>
       {/* Film grain */}
       <div style={{

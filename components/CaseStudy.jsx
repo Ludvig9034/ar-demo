@@ -69,30 +69,14 @@ const CaseStudyBlock = ({ section, label, headline, intro, scrollText, content, 
               </h2>
             </div>
             {!isMobile && (
-              cover ? (
-                <div style={{ position: 'relative', overflow: 'hidden', height: 200 }}>
-                  <img src={cover} alt={label}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', opacity: 0.85 }}/>
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 65%)' }}/>
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px 20px' }}>
-                    <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', marginBottom: 6 }}>
-                      {label}
-                    </div>
-                    <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, lineHeight: 1.6, color: 'rgba(255,255,255,0.7)', margin: 0, maxWidth: '38ch' }}>
-                      {scrollText}
-                    </p>
-                  </div>
+              <div style={{ paddingBottom: 6 }}>
+                <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', marginBottom: 12 }}>
+                  {label}
                 </div>
-              ) : (
-                <div style={{ paddingBottom: 6 }}>
-                  <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', marginBottom: 12 }}>
-                    {label}
-                  </div>
-                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.65)', margin: 0, maxWidth: '46ch' }}>
-                    {scrollText}
-                  </p>
-                </div>
-              )
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.65)', margin: 0, maxWidth: '46ch' }}>
+                  {scrollText}
+                </p>
+              </div>
             )}
           </div>
 
