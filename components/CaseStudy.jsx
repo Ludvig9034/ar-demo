@@ -1,7 +1,7 @@
 /** @jsx React.createElement */
 // Sticky scroll narrative with phone mock + tabs — reused for KiMs + Harboe
 
-const CaseStudyBlock = ({ section, label, headline, intro, scrollText, content, scenes, accentMeta, isFirst }) => {
+const CaseStudyBlock = ({ section, label, headline, intro, scrollText, content, scenes, accentMeta, isFirst, cover }) => {
   const ref = React.useRef(null);
   const isMobile = useWindowWidth() < 768;
   // Custom: progress while the sticky pane is pinned (parent's top from 0 to -(parentHeight - vh))
@@ -69,14 +69,30 @@ const CaseStudyBlock = ({ section, label, headline, intro, scrollText, content, 
               </h2>
             </div>
             {!isMobile && (
-              <div style={{ paddingBottom: 6 }}>
-                <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', marginBottom: 12 }}>
-                  {label}
+              cover ? (
+                <div style={{ position: 'relative', overflow: 'hidden', height: 200 }}>
+                  <img src={cover} alt={label}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', opacity: 0.85 }}/>
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 65%)' }}/>
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px 20px' }}>
+                    <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', marginBottom: 6 }}>
+                      {label}
+                    </div>
+                    <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, lineHeight: 1.6, color: 'rgba(255,255,255,0.7)', margin: 0, maxWidth: '38ch' }}>
+                      {scrollText}
+                    </p>
+                  </div>
                 </div>
-                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.65)', margin: 0, maxWidth: '46ch' }}>
-                  {scrollText}
-                </p>
-              </div>
+              ) : (
+                <div style={{ paddingBottom: 6 }}>
+                  <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', marginBottom: 12 }}>
+                    {label}
+                  </div>
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.65)', margin: 0, maxWidth: '46ch' }}>
+                    {scrollText}
+                  </p>
+                </div>
+              )
             )}
           </div>
 
@@ -167,6 +183,7 @@ const CaseStudyBlock = ({ section, label, headline, intro, scrollText, content, 
 const CaseStudy = () => (
   <>
     <CaseStudyBlock isFirst section="05"
+      cover="assets/KiMs x Martin Jensen_Cover.png"
       label="Remix kampagne"
       headline={['KIMs×','Martin','Jensen']}
       scrollText="Scroll for at se forløbet. Fra ambition til resultater."
@@ -188,6 +205,7 @@ const CaseStudy = () => (
       ]}
     />
     <CaseStudyBlock section="05B"
+      cover="assets/Harboe_Cover.png"
       label="Folkets sodavand"
       headline={['Harboes','Bryggeri']}
       scrollText="Scroll for at se forløbet. Fra ambition til resultater."
