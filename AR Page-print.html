@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<title>Loud Colors — AR · Print</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/colors_and_type.css">
+<style>
+  :root { --lc-accent: #3370FF; }
+  html, body { margin: 0; background: #000; color: #fff; font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  * { box-sizing: border-box; }
+  ::selection { background: var(--lc-accent); color: #fff; }
+
+  /* === FORCE ALL ANIMATIONS COMPLETE — print is static === */
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .reveal.in { opacity: 1 !important; transform: none !important; }
+  .mask-line { display: inline-block; vertical-align: bottom; overflow: visible !important; }
+  .mask-line > span { transform: none !important; display: inline-block; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+
+  /* Hide chrome that doesn't make sense in print */
+  #__progress, #__cursor, #__dot, .tweaks-panel, .grain::before { display: none !important; }
+
+  /* Grain off in print */
+  .grain::before { display: none !important; }
+
+  /* Make sticky case study render statically — expanded */
+  .__casestudy-pinned-host { height: auto !important; }
+  .__casestudy-pinned-host > * { position: static !important; height: auto !important; min-height: auto !important; }
+
+  /* Page setup */
+  @page { size: A4 portrait; margin: 0; }
+  @media print {
+    html, body { background: #000 !important; }
+    section, footer { break-inside: avoid; page-break-inside: avoid; }
+    section { break-after: page; page-break-after: always; }
+    section:last-of-type { break-after: auto; page-break-after: auto; }
+    footer { break-before: page; page-break-before: always; }
+    /* Lock fixed nav into the first page only */
+    nav { position: absolute !important; }
+  }
+
+  /* Reveal system base (still need so mask-line lays out) */
+  .mask-line { display: inline-block; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="components/hooks.jsx"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Hero.jsx"></script>
+<script type="text/babel" src="components/WhatIsAR.jsx"></script>
+<script type="text/babel" src="components/CasesStrip.jsx"></script>
+<script type="text/babel" src="components/Statement.jsx"></script>
+<script type="text/babel" src="components/Capabilities.jsx"></script>
+<script type="text/babel" src="components/CaseStudy.jsx"></script>
+<script type="text/babel" src="components/Stats.jsx"></script>
+<script type="text/babel" src="components/FAQ.jsx"></script>
+<script type="text/babel" src="components/CTAFooter.jsx"></script>
+
+<script type="text/babel">
+const App = () => (
+  <>
+    <Nav/>
+    <Hero/>
+    <WhatIsAR/>
+    <CasesStrip/>
+    <Statement/>
+    <Capabilities/>
+    {/* Wrap CaseStudy so we can flatten its sticky/pinned scroll for print */}
+    <div className="__casestudy-pinned-host"><CaseStudy/></div>
+    <Stats/>
+    <FAQ/>
+    <CTAFooter/>
+  </>
+);
+
+const waitFor = () => {
+  const needed = ['Nav','Hero','WhatIsAR','CasesStrip','Statement','Capabilities','CaseStudy','Stats','FAQ','CTAFooter'];
+  if (needed.every(n => window[n])) {
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+    // Force-mark every reveal/mask-line as "in" so animations don't gate visibility
+    setTimeout(() => {
+      document.querySelectorAll('.reveal, .mask-line').forEach(el => el.classList.add('in'));
+    }, 100);
+
+    // Auto-print after fonts + layout settle
+    const triggerPrint = async () => {
+      try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) {}
+      // mark reveals once more in case more rendered
+      document.querySelectorAll('.reveal, .mask-line').forEach(el => el.classList.add('in'));
+      setTimeout(() => window.print(), 500);
+    };
+    if (document.readyState === 'complete') triggerPrint();
+    else window.addEventListener('load', triggerPrint);
+  } else setTimeout(waitFor, 40);
+};
+waitFor();
+</script>
+</body>
+</html>

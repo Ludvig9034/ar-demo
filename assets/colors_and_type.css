@@ -1,0 +1,208 @@
+/* =========================================================================
+   LOUD COLORS — colors & type tokens
+   ========================================================================= */
+
+/* ---- Fonts (Google Fonts fallbacks; real fonts flagged in README) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  /* ------------- Color primitives ------------- */
+  --lc-black: #000000;
+  --lc-white: #ffffff;
+
+  /* Greys — only a few; keep restraint */
+  --lc-grey-900: #0a0a0a;   /* slightly lifted black for layered surfaces */
+  --lc-grey-800: #141414;   /* card base over pure black */
+  --lc-grey-700: #1f1f1f;   /* divider zone */
+  --lc-grey-500: #6e6e6e;   /* meta text on black */
+  --lc-grey-400: #8a8a8a;   /* footer meta / timestamps */
+  --lc-grey-300: #b4b4b4;   /* secondary body */
+  --lc-grey-200: #d9d9d9;
+
+  /* Hairline strokes */
+  --lc-line-15: rgba(255, 255, 255, 0.15);
+  --lc-line-25: rgba(255, 255, 255, 0.25);
+  --lc-line-50: rgba(255, 255, 255, 0.50);
+
+  /* Protection gradient for legibility over video */
+  --lc-protect-top: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%);
+  --lc-protect-bot: linear-gradient(0deg,   rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);
+
+  /* ------------- Semantic color roles ------------- */
+  --bg:          var(--lc-black);
+  --bg-raised:   var(--lc-grey-900);
+  --bg-card:     var(--lc-grey-800);
+  --fg:          var(--lc-white);
+  --fg-muted:    var(--lc-grey-300);
+  --fg-meta:     var(--lc-grey-400);
+  --fg-tertiary: var(--lc-grey-500);
+  --border:      var(--lc-line-15);
+  --border-hi:   var(--lc-line-25);
+  --focus:       var(--lc-white);
+
+  /* There is NO brand accent. Color lives in imagery. */
+
+  /* ------------- Type families ------------- */
+  --font-display: 'Oswald', 'Bebas Neue', 'Impact', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'Space Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ------------- Type scale ------------- *
+   * Signature gap: huge display → small body. Nothing in-between. */
+  --fs-mega:    clamp(96px, 18vw, 320px); /* hero wordmark */
+  --fs-display: clamp(56px, 8vw, 144px);  /* page H1 */
+  --fs-title:   clamp(32px, 4vw, 56px);   /* sub-hero / big stats */
+  --fs-h2:      28px;
+  --fs-h3:      20px;
+  --fs-body:    15px;
+  --fs-small:   13px;
+  --fs-micro:   11px;   /* corner meta, tracking labels */
+
+  /* Line heights */
+  --lh-display: 0.88;
+  --lh-title:   0.95;
+  --lh-heading: 1.1;
+  --lh-body:    1.55;
+  --lh-meta:    1.4;
+
+  /* Tracking */
+  --ls-display: -0.02em;
+  --ls-body:     0em;
+  --ls-label:    0.12em;  /* uppercase labels */
+  --ls-micro:    0.08em;
+
+  /* Weights */
+  --fw-reg: 400;
+  --fw-med: 500;
+  --fw-bold: 700;
+
+  /* ------------- Spacing ------------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+  --s-11: 192px;
+
+  /* Layout */
+  --page-pad: clamp(16px, 3vw, 40px);
+  --max-w: 1600px;
+
+  /* ------------- Radius ------------- */
+  --r-0: 0px;      /* DEFAULT — sharp rectangles */
+  --r-xs: 2px;     /* tiny chips / inputs */
+  --r-s:  4px;     /* buttons */
+
+  /* ------------- Motion ------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-med:  400ms;
+  --dur-slow: 800ms;
+
+  /* ------------- Shadows ------------- */
+  /* The brand does not use shadows. Provided only as a "just in case". */
+  --shadow-none: none;
+  --shadow-focus: 0 0 0 2px var(--lc-black), 0 0 0 3px var(--lc-white);
+}
+
+/* =========================================================================
+   Semantic element styles — scoped via .lc-type wrapper so they don't
+   leak into host pages that include this file.
+   ========================================================================= */
+
+.lc-type,
+.lc-type * {
+  font-family: var(--font-body);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lc-type h1,
+.lc-type .h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+  margin: 0;
+}
+
+.lc-type h2,
+.lc-type .h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-title);
+  line-height: var(--lh-title);
+  letter-spacing: var(--ls-display);
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+  margin: 0;
+}
+
+.lc-type h3,
+.lc-type .h3 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  font-weight: var(--fw-med);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.lc-type p,
+.lc-type .body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-muted);
+  margin: 0;
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+
+.lc-type .label,
+.lc-type label {
+  font-size: var(--fs-micro);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  font-weight: var(--fw-med);
+  color: var(--fg);
+}
+
+.lc-type .meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--ls-micro);
+  color: var(--fg-meta);
+  text-transform: uppercase;
+}
+
+.lc-type .mega {
+  font-family: var(--font-display);
+  font-size: var(--fs-mega);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+}
+
+.lc-type a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--fg);
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.lc-type a:hover { opacity: 0.6; }
+
+.lc-type code,
+.lc-type pre {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--fg);
+}
