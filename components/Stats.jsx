@@ -29,7 +29,7 @@ const Stats = () => {
           letterSpacing: '-0.02em', textTransform: 'uppercase', color: '#fff',
         }}>
           <div className="mask-line"><span>Kampagnen</span></div>
-          <div className="mask-line"><span style={{ transitionDelay: '120ms', color: 'rgba(255,255,255,0.45)' }}>fastholdt.</span></div>
+          <div className="mask-line"><span style={{ transitionDelay: '120ms', color: 'rgba(255,255,255,0.45)' }}>fastholdte.</span></div>
         </h2>
 
         {/* Big numbers row */}
