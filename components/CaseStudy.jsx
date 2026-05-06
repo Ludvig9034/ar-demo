@@ -164,8 +164,7 @@ const CaseStudyBlock = ({ section, label, headline, intro, scrollText, content, 
   );
 };
 
-const CaseStudy = () => (
-  <>
+const CaseStudyKiMs = () => (
     <CaseStudyBlock isFirst section="05"
       cover="assets/KiMs x Martin Jensen_Cover.png"
       label="Remix kampagne"
@@ -188,6 +187,9 @@ const CaseStudy = () => (
         { kind: 'video', src: 'assets/KiMs_AR_Loop_video.mp4' },
       ]}
     />
+);
+
+const CaseStudyHarboe = () => (
     <CaseStudyBlock section="05B"
       cover="assets/Harboe_Cover.png"
       label="Folkets sodavand"
@@ -210,8 +212,10 @@ const CaseStudy = () => (
         { kind: 'video', src: 'assets/Harboe_AR_Loop_video.mp4' },
       ]}
     />
-  </>
 );
+
+window.CaseStudyKiMs = CaseStudyKiMs;
+window.CaseStudyHarboe = CaseStudyHarboe;
 
 const PhoneMock = ({ activeTab, scenes, isMobile }) => (
   <div style={{
