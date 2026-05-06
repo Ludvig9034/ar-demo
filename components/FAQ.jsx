@@ -5,7 +5,7 @@ const faqs = [
   { q: 'Hvad koster en AR-oplevelse?', a: 'Fra 75.000 kr. for en enkel aktivering og op. Vi skræddersyr altid efter brief. Book et møde, så kommer vi med et præcist estimat og timeline.' },
   { q: 'Kan AR integreres med eksisterende kampagner?', a: 'Absolut. AR fungerer bedst som forlængelse af print, emballage, OOH eller SoMe. Vi integrerer QR, NFC eller image-tracking med dit eksisterende setup.' },
   { q: 'Måler I engagement og resultater?', a: 'Ja. Vi tracker scanninger, sessionstid, delinger og interaktioner. Du får fuld indsigt i, hvordan din målgruppe bruger oplevelsen i realtid.' },
-  { q: 'Ejer vi selv oplevelsen bagefter?', a: 'Ja. Du modtager kildefiler, 3D-assets og en komplet hosting-opsætning — så I frit kan drifte og videreudvikle løsningen helt på egen hånd. Vi kan selvfølgelig også stå for løbende support og iterationer, hvis det ønskes.' },
+  { q: 'Ejer vi selv oplevelsen bagefter?', a: 'Ja. Du får adgang til selve oplevelsen og kan til enhver tid få den aktiveret igen. Løsningen er bygget i vores system, så koden ejes ikke direkte, men du har fulde rettigheder til oplevelsen. Vi kan aktivere den mod et månedligt gebyr, så den ikke skal genudvikles fra bunden senere.' },
 ];
 
 const FAQ = () => {
