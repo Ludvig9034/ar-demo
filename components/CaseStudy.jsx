@@ -177,7 +177,7 @@ const CaseStudyKiMs = () => (
         { head: 'Ekstraordinær kundeoplevelse',
           body: 'Ved at scanne Remix-chipsposerne åbner forbrugerne en interaktiv AR-oplevelse direkte på mobilen, uden at hente en app. Her dykker de ned i en virtuel Remix-verden og bliver en del af festen.',
           meta: [['OPSTART', '< 30 SEK.'], ['ADGANG', 'DIREKTE'], ['PLATFORM', 'WebAR']] },
-        { head: 'Kampagnen der fastholdt',
+        { head: 'Kampagnen der fastholdte',
           body: 'Vores interaktive AR-kampagne skabte stærk brugerinteraktion på tværs af landet. 38.000 scanninger, 1,2 minutters gennemsnitlig engagementtid. Forbrugerne udforskede aktivt og festede med til hits.',
           meta: [['SCANNINGER', '38.000'], ['GNS. VISNINGSTID', '1,2 MIN'], ['RÆKKEVIDDE', 'Landsdækkende']] },
       ]}
