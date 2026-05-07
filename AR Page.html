@@ -18,6 +18,9 @@
      which would break position:sticky on child elements */
   html { overflow-x: clip; }
   body { overflow-x: clip; }
+  /* Skjul vertikal scrollbar — scroll virker stadig */
+  html::-webkit-scrollbar { display: none; }
+  html { -ms-overflow-style: none; scrollbar-width: none; }
   ::selection { background: var(--lc-accent); color: #fff; }
   * { box-sizing: border-box; }
   ::selection { background: #fff; color: #000; }
