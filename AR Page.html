@@ -219,7 +219,7 @@
 <script type="text/babel" src="components/hooks.jsx?v=5"></script>
 <script type="text/babel" src="components/Hero.jsx?v=5"></script>
 <script type="text/babel" src="components/WhatIsAR.jsx?v=3"></script>
-<script type="text/babel" src="components/CasesStrip.jsx?v=7"></script>
+<script type="text/babel" src="components/CasesStrip.jsx?v=8"></script>
 <script type="text/babel" src="components/Statement.jsx?v=2"></script>
 <script type="text/babel" src="components/Capabilities.jsx?v=5"></script>
 <script type="text/babel" src="components/CaseStudy.jsx?v=12"></script>
@@ -272,12 +272,19 @@ const MobileCTA = () => {
 const App = () => {
   // Global mount-level animation systems
   useEffect(() => {
-    // Custom cursor
+    // Custom cursor — deaktiveres ved touch
     const ring = document.getElementById('__cursor');
     const dot  = document.getElementById('__dot');
     let rx = 0, ry = 0, dx = 0, dy = 0, tx = 0, ty = 0;
-    const onMove = (e) => { tx = e.clientX; ty = e.clientY; dx = tx; dy = ty; };
+    let isTouch = false;
+    window.addEventListener('touchstart', () => {
+      isTouch = true;
+      ring.style.display = 'none';
+      dot.style.display  = 'none';
+    }, { passive: true, once: true });
+    const onMove = (e) => { if (isTouch) return; tx = e.clientX; ty = e.clientY; dx = tx; dy = ty; };
     const onOver = (e) => {
+      if (isTouch) return;
       const el = e.target.closest('a,button,.hot,[data-hot]');
       if (el) ring.classList.add('hover'); else ring.classList.remove('hover');
     };

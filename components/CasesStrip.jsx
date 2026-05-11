@@ -52,6 +52,7 @@ const CasesStrip = () => {
 const CaseTile = ({ client, title, tag, cover, vimeoId, index }) => {
   const [hover, setHover] = React.useState(false);
   const [playing, setPlaying] = React.useState(false);
+  const isMobile = useWindowWidth() < 640;
   return (
     <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
       onClick={() => vimeoId && setPlaying(true)}
@@ -96,15 +97,19 @@ const CaseTile = ({ client, title, tag, cover, vimeoId, index }) => {
         </div>
       </div>
 
-      {/* Play affordance */}
+      {/* Play affordance — altid synlig på mobil, hover på desktop */}
       <div style={{
-        position: 'absolute', top: '50%', left: '50%', transform: `translate(-50%,-50%) scale(${hover ? 1 : 0.8})`,
-        width: 88, height: 88, border: '1px solid rgba(255,255,255,0.8)', borderRadius: '50%',
+        position: 'absolute', top: '50%', left: '50%',
+        transform: `translate(-50%,-50%) scale(${isMobile ? 1 : hover ? 1 : 0.8})`,
+        width: isMobile ? 52 : 88, height: isMobile ? 52 : 88,
+        border: '1px solid rgba(255,255,255,0.8)', borderRadius: '50%',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        opacity: hover ? 1 : 0, transition: 'all 500ms cubic-bezier(0.22,1,0.36,1)',
-        backdropFilter: 'blur(2px)',
+        opacity: isMobile ? 0.85 : hover ? 1 : 0,
+        transition: 'all 500ms cubic-bezier(0.22,1,0.36,1)',
+        backdropFilter: 'blur(4px)',
+        background: isMobile ? 'rgba(0,0,0,0.25)' : 'transparent',
       }}>
-        <div style={{ width: 0, height: 0, borderTop: '8px solid transparent', borderBottom: '8px solid transparent', borderLeft: '14px solid #fff', marginLeft: 3 }}/>
+        <div style={{ width: 0, height: 0, borderTop: `${isMobile ? 5 : 8}px solid transparent`, borderBottom: `${isMobile ? 5 : 8}px solid transparent`, borderLeft: `${isMobile ? 9 : 14}px solid #fff`, marginLeft: isMobile ? 2 : 3 }}/>
       </div>
 
       {/* Meta */}
